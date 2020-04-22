@@ -1,0 +1,16 @@
+
+-- 1. kadaidb データベースを作成するSQL文
+CREATE DATABASE kadaidb;
+
+-- 2. person テーブルを作成するSQL文
+
+CREATE TABLE kadaidb.person (
+    id INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    name VARCHAR(50),
+    age INT(11),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 3. データを1件保存するSQL文
+    
+INSERT INTO kadaidb.person (name,age) VALUES ("田中角栄",88);
