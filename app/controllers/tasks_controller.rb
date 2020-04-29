@@ -3,7 +3,6 @@ class TasksController < ApplicationController
   
   def index
     @tasks = current_user.tasks.order(id: :desc).page(params[:page])
-
   end
   
   def create
@@ -27,7 +26,11 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
+    if current_user.tasks.find_by(id: params[:id])
+       @task = Task.find(params[:id])
+    else 
+      redirect_to root_url
+    end
   end
   
   def update
